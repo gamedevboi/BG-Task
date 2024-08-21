@@ -7,6 +7,8 @@ public class InventoryController : MonoBehaviour
     public int inventorysize = 10;
     [SerializeField]
     private InventoryUI inventoryUI;
+    [SerializeField]
+    private PlayerController playerController;
     
     private void Start() {
         inventoryUI.InitializeInventoryUI(inventorysize);
@@ -17,7 +19,14 @@ public class InventoryController : MonoBehaviour
             if (inventoryUI.isActiveAndEnabled == false)
             {
                 inventoryUI.Show();
-            }else { inventoryUI.Hide();}
+                playerController.isInInventory = true;
+                Cursor.lockState = CursorLockMode.None;
+
+            }else { 
+                inventoryUI.Hide();
+                playerController.isInInventory = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                }
     }
   }
 }

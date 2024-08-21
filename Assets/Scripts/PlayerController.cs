@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
 
    private CharacterController characterController;
    private float vertRot = 0f;
- 
+   public bool isInInventory = false;
 
    void Awake(){
       characterController = GetComponent<CharacterController>();
-      // Cursor.lockState = CursorLockMode.Locked;
+      Cursor.lockState = CursorLockMode.Locked;
    }
 
    void Update() {
@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
       // Cam Movement
 
       if (PlayerCamera != null){
+         if (isInInventory){return;}
          float mouseX = Input.GetAxis("Mouse X") * LookSensitivityX;
          float mouseY = Input.GetAxis("Mouse Y") * LookSensitivityY;
 

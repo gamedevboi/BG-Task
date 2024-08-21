@@ -19,7 +19,7 @@ public class InventoryItemUI : MonoBehaviour
     [SerializeField] 
     UnityEngine.UI.Image borderImg;
 
-    public event Action<InventoryItemUI> OnItemClicked, OnItemDroppedOn, OnItemBeingDrag, OnItemEndDrag, OnRightMouseBtnClicked;
+    public event Action<InventoryItemUI> OnItemClicked, OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClicked;
 
     private bool empty = true;
 
@@ -49,26 +49,24 @@ public class InventoryItemUI : MonoBehaviour
         borderImg.enabled = true;
     }
 
-    public void OnBeingDrag(){
-        if (empty)
-        {
-            return;
-        }OnItemDroppedOn?.Invoke(this);
-    }
-
-    public void OnDrop(){
-        OnItemDroppedOn?.Invoke(this);
-    }
-    public void OnEndDrag(){
-        OnItemDroppedOn.Invoke(this);
-    }
-
-    public void OnPointerCLick(BaseEventData data){
-
+    public void OnBeginDrag(){
         if (empty)
         {
             return;
         }
+        // Debug.Log("OnBeginDrag triggered");
+         OnItemBeginDrag?.Invoke(this);
+    }
+    public void OnDrop()
+        {
+            OnItemDroppedOn?.Invoke(this);
+        }
+    
+    public void OnEndDrag(){
+        OnItemEndDrag?.Invoke(this);
+    }
+
+    public void OnPointerCLick(BaseEventData data){
 
         PointerEventData pointerData = (PointerEventData)data;
 

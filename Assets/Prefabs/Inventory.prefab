@@ -238,7 +238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 060354b6b05b5e6829edb7f608982051, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8fca03c93e358bbeb5a783020006f8f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -462,14 +462,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 060354b6b05b5e6829edb7f608982051, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 36bb0567254d8d716bf01f55f9f50391, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -477,7 +477,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.19
+  m_PixelsPerUnitMultiplier: 0.51
 --- !u!114 &9059566166371301253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,6 +519,12 @@ MonoBehaviour:
   itemPrefab: {fileID: 6862361753639566403, guid: d0443d9192646199ca09c5cfd8607280, type: 3}
   contentPanel: {fileID: 4824103399339014138}
   itemDescription: {fileID: 5066263884023448638}
+  mouseFollowerUI: {fileID: 0}
+  image: {fileID: 0}
+  image2: {fileID: 0}
+  quantity: 0
+  title: 
+  description: 
 --- !u!1 &4865994707973872429
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1008,7 +1014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1203,7 +1209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.015686275}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
