@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 
@@ -24,6 +26,9 @@ public class ItemSO : ScriptableObject
 
     [field: SerializeField]
     public Sprite ItemImage { get; set; }
+
+    [SerializeField]
+    public string itemType = "Consumable";
 
     // [field: SerializeField]
     // public List<ItemParameter> DefaultParametersList { get; set; }

@@ -59,10 +59,34 @@ public class InventoryController : MonoBehaviour
 
 
     private void HandleItemActionRequest(int itemIdx)
-    {
-    }
+        {
+            print("PRESSED HandleItemActionRequest");
 
-    private void HandleDragging(int itemIdx)
+            InventoryItem inventoryItem = inventoryData.GetItemAt(itemIdx);
+
+            if (inventoryItem.IsEmpty)
+            {
+                return;
+            }
+
+            DoItemAction(inventoryItem);
+
+        }
+
+        //Just to finish the task quickly with only 2 types of items, this could be a list or subclasses though.
+        private void DoItemAction(InventoryItem inventoryItem)
+        {
+            if (inventoryItem.item.itemType == "Consumable")
+            {
+                playerController.Heal(10);
+            }
+            else if (inventoryItem.item.itemType == "Equipable")
+            {
+                playerController.Equip(inventoryItem);
+            }
+        }
+
+        private void HandleDragging(int itemIdx)
     {
         InventoryItem inventoryItem = inventoryData.GetItemAt(itemIdx);
         if (inventoryItem.IsEmpty){

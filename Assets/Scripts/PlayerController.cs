@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Inventory.Model;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.XR;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,14 +19,29 @@ public class PlayerController : MonoBehaviour
    public float MaxYLookAngle = 90;
    public Transform PlayerCamera;
 
-
+   
    private CharacterController characterController;
    private float vertRot = 0f;
+   
+   [SerializeField]
+   public Transform hand;
+   
+   [SerializeField]
+   public Animation anim;
+   
    public bool isInInventory = false;
+
+
+   [SerializeField]
+   public TMP_Text HealthTxt;
+   public int MaxHP = 100;
+   public int HP = 50;
 
    void Awake(){
       characterController = GetComponent<CharacterController>();
       Cursor.lockState = CursorLockMode.Locked;
+       HealthTxt.text = "HP: " + HP.ToString();
+      
    }
 
    void Update() {
@@ -40,7 +59,7 @@ public class PlayerController : MonoBehaviour
          speed *= SpringMult;  
       }
       characterController.Move(moveDir * speed * Time.deltaTime);
-
+     
 
       // Cam Movement
 
@@ -56,6 +75,38 @@ public class PlayerController : MonoBehaviour
          transform.Rotate(Vector3.up * mouseX);
 
       }
+
+       if (Input.GetKeyDown(KeyCode.Mouse0) && isInInventory == false)
+       {         
+         anim.Play("Attack");
+         // Animation animation = hand.GetComponent<Animation>();
+         // animation.Play();
+      }
+
+      
    }
+   public void Heal(int Amount){
+      HP+= Amount;
+      if (HP>MaxHP){
+         HP =MaxHP;
+      }
+
+      HealthTxt.text = "HP: " + HP.ToString();
+   }
+
+    public void Equip(InventoryItem inventoryItem)
+    {
+        Debug.Log("equiped " + inventoryItem.item.name);
+        hand.gameObject.SetActive(true);
+        
+    }
+
+     public void Unequip(InventoryItem inventoryItem)
+    {
+        Debug.Log("unequiped " + inventoryItem.item.name);
+        hand.gameObject.SetActive(false);
+        
+    }
+
 
 }

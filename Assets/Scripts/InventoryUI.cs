@@ -55,7 +55,12 @@ namespace Inventory.UI{
     }
     private void HandleShowItemActions(InventoryItemUI itemUI)
     {
-        // mouseFollowerUI.Toggle(false);
+        int idx = listOfItemsUI.IndexOf(itemUI);
+        if (idx == -1){
+            
+            return;
+        }
+        OnItemActionRequested?.Invoke(idx);
     }
 
     private void HandleEndDrag(InventoryItemUI itemUI)
