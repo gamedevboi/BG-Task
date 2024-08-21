@@ -69,16 +69,17 @@ public class InventoryController : MonoBehaviour
                 return;
             }
 
-            DoItemAction(inventoryItem);
+            DoItemAction(inventoryItem, itemIdx);
 
         }
 
         //Just to finish the task quickly with only 2 types of items, this could be a list or subclasses though.
-        private void DoItemAction(InventoryItem inventoryItem)
+        private void DoItemAction(InventoryItem inventoryItem, int itemIndex)
         {
             if (inventoryItem.item.itemType == "Consumable")
             {
                 playerController.Heal(10);
+                inventoryData.RemoveItem(itemIndex, 1);
             }
             else if (inventoryItem.item.itemType == "Equipable")
             {

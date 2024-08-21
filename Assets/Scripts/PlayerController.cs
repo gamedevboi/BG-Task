@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Inventory.Model;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.XR;
@@ -37,10 +38,15 @@ public class PlayerController : MonoBehaviour
    public int MaxHP = 100;
    public int HP = 50;
 
+   private AudioSource healSound = new();
+
+
+
    void Awake(){
       characterController = GetComponent<CharacterController>();
       Cursor.lockState = CursorLockMode.Locked;
        HealthTxt.text = "HP: " + HP.ToString();
+       healSound = GetComponent<AudioSource>();
       
    }
 
@@ -86,6 +92,7 @@ public class PlayerController : MonoBehaviour
       
    }
    public void Heal(int Amount){
+      healSound.Play();
       HP+= Amount;
       if (HP>MaxHP){
          HP =MaxHP;

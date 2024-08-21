@@ -15,6 +15,8 @@ MonoBehaviour:
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Sword
-  <Description>k__BackingField: A reliable weapon.
+  <Description>k__BackingField: 'A reliable weapon.
+
+    RIght Click to Equip.'
   <ItemImage>k__BackingField: {fileID: -74125044, guid: 9b2779e2c0348d19f92bb7370de8b781, type: 3}
   itemType: Equipable

@@ -15,5 +15,8 @@ MonoBehaviour:
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 5
   <Name>k__BackingField: Potion
-  <Description>k__BackingField: Restores a little health.
+  <Description>k__BackingField: 'Restores a little health.
+
+    Right Click to Use.'
   <ItemImage>k__BackingField: {fileID: 813120436, guid: 9b2779e2c0348d19f92bb7370de8b781, type: 3}
+  itemType: Consumable
