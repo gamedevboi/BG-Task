@@ -75,12 +75,7 @@ namespace Inventory.UI{
         }
 
         OnSwapItems?.Invoke(currentlyDraggedItemIndex,idx);
-        // listOfItemsUI[currentlyDraggedItemIndex].SetData(idx == 0 ? image : image2, quantity);
-        // listOfItemsUI[idx].SetData(currentlyDraggedItemIndex == 0 ? image : image2, quantity);
-        
-        // mouseFollowerUI.Toggle(false);
-        // currentlyDraggedItemIndex = -1;
-        // Debug.Log("swapped");
+        HandleItemSelection(itemUI);
     }
 
     private void ResetDraggedItem()
@@ -147,5 +142,14 @@ namespace Inventory.UI{
         DeselectAllItems();
         listOfItemsUI[itemIdx].Select();
     }
-}
+
+        internal void ResetAllItems()
+        {
+            foreach (var item in listOfItemsUI)
+            {
+                item.ResetData();
+                item.Deselect();
+            }
+        }
+    }
 }
