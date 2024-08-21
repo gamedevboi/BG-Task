@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
 
    private CharacterController characterController;
+   private float vertRot = 0f;
+ 
 
    void Awake(){
       characterController = GetComponent<CharacterController>();
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour
    }
 
    void Update() {
+
+      // Movement
       float horizontalMovement = Input.GetAxis("Horizontal");
       float verticalMovement = Input.GetAxis("Vertical");
 
@@ -35,10 +39,22 @@ public class PlayerController : MonoBehaviour
       if(Input.GetAxis("Sprint") > 0){
          speed *= SpringMult;  
       }
-
-
       characterController.Move(moveDir * speed * Time.deltaTime);
 
+
+      // Cam Movement
+
+      if (PlayerCamera != null){
+         float mouseX = Input.GetAxis("Mouse X") * LookSensitivityX;
+         float mouseY = Input.GetAxis("Mouse Y") * LookSensitivityY;
+
+
+         vertRot -= mouseY;            
+         vertRot = Mathf.Clamp(vertRot, MinYLookAngle, MaxYLookAngle);
+         PlayerCamera.localRotation = Quaternion.Euler(vertRot, 0f, 0f);
+         transform.Rotate(Vector3.up * mouseX);
+
+      }
    }
 
 }
