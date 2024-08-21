@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,34 @@ public class InventoryUI : MonoBehaviour
                 Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
                 itemUI.transform.SetParent(contentPanel);
                 listOfItemsUI.Add(itemUI);
+                
+                itemUI.OnItemClicked += HandleItemSelection;
+                itemUI.OnItemBeingDrag += HandleBeingDrag;
+                itemUI.OnItemDroppedOn += HandleSwap;
+                itemUI.OnItemEndDrag += HandleEndDrag;
+                itemUI.OnRightMouseBtnClicked += HandleShowItemActions;
         }
+    }
+
+    private void HandleShowItemActions(InventoryItemUI uI)
+    {
+    }
+
+    private void HandleEndDrag(InventoryItemUI uI)
+    {
+    }
+
+    private void HandleSwap(InventoryItemUI uI)
+    {
+    }
+
+    private void HandleBeingDrag(InventoryItemUI uI)
+    {
+    }
+
+    private void HandleItemSelection(InventoryItemUI uI)
+    {
+        Debug.Log(uI.name);
     }
 
     public void Show(){
@@ -28,7 +56,7 @@ public class InventoryUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    
+
 
 
 }
