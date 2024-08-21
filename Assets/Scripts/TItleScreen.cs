@@ -20,15 +20,8 @@ public class TItleScreen : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && gameObject.activeSelf == true)
-        {Quit();}
+        {Application.Quit();}
     }
 
-    public void Quit() {
-    #if UNITY_STANDALONE
-        Application.Quit();
-    #endif
-    #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-    #endif
-}
+    
 }
