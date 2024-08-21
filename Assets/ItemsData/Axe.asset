@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32933e2ad438721f38806c536b0908af, type: 3}
-  m_Name: Potion
+  m_Name: Axe
   m_EditorClassIdentifier: 
-  <IsStackable>k__BackingField: 1
-  <MaxStackSize>k__BackingField: 5
-  <Name>k__BackingField: Potion
-  <Description>k__BackingField: 'Restores 10 HP.
+  <IsStackable>k__BackingField: 0
+  <MaxStackSize>k__BackingField: 1
+  <Name>k__BackingField: Axe
+  <Description>k__BackingField: 'A short War Axe.
 
-    Right Click to Use.'
-  <ItemImage>k__BackingField: {fileID: 813120436, guid: 9b2779e2c0348d19f92bb7370de8b781, type: 3}
-  itemType: Consumable
+    RIght Click to Equip.'
+  <ItemImage>k__BackingField: {fileID: 1458057839, guid: 9b2779e2c0348d19f92bb7370de8b781, type: 3}
+  itemType: Equipable

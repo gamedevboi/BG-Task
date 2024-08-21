@@ -115,6 +115,12 @@ public class InventoryController : MonoBehaviour
 
 
     public void Update() {
+        if (playerController.titleScreen.gameObject.activeSelf)
+        {
+            return;
+        }
+
+
         if(Input.GetKeyDown(KeyCode.I)){
             if (inventoryUI.isActiveAndEnabled == false)
             {

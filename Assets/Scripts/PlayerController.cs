@@ -26,7 +26,11 @@ public class PlayerController : MonoBehaviour
    
    [SerializeField]
    public Transform hand;
-   
+
+   [SerializeField]
+public Transform titleScreen;
+
+
    [SerializeField]
    public Animation anim;
    
@@ -40,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
    private AudioSource healSound = new();
 
+   
+   
 
 
    void Awake(){
@@ -51,7 +57,10 @@ public class PlayerController : MonoBehaviour
    }
 
    void Update() {
-
+      if (titleScreen.gameObject.activeSelf)
+      {
+         return;
+      }
       // Movement
       float horizontalMovement = Input.GetAxis("Horizontal");
       float verticalMovement = Input.GetAxis("Vertical");
@@ -81,13 +90,19 @@ public class PlayerController : MonoBehaviour
          transform.Rotate(Vector3.up * mouseX);
 
       }
-
+      //Attack anim
        if (Input.GetKeyDown(KeyCode.Mouse0) && isInInventory == false)
        {         
          anim.Play("Attack");
          // Animation animation = hand.GetComponent<Animation>();
          // animation.Play();
       }
+
+
+      // quit to title screen
+
+      if (Input.GetKeyDown(KeyCode.Escape))
+        {titleScreen.gameObject.SetActive(true);}
 
       
    }
