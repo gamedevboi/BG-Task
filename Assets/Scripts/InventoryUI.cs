@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryUI : MonoBehaviour
+namespace Inventory.UI{
+    public class InventoryUI : MonoBehaviour
 {
    [SerializeField]
    private InventoryItemUI itemPrefab;
@@ -15,13 +16,13 @@ public class InventoryUI : MonoBehaviour
    [SerializeField]
    private MouseFollowerUI mouseFollowerUI;
 
-   List<InventoryItemUI> listOfItemsUI = new List<InventoryItemUI>();
+    List<InventoryItemUI> listOfItemsUI = new List<InventoryItemUI>();
 
     private int currentlyDraggedItemIndex = -1;
 
     public event Action<int> OnDescriptionRequested, OnItemActionRequested, OnStartDragging;
     public event Action<int, int> OnSwapItems;
-
+    
 
     private void Awake() {
         Hide();
@@ -121,7 +122,7 @@ public class InventoryUI : MonoBehaviour
         ResetSelection();
     }
 
-    private void ResetSelection()
+    public void ResetSelection()
     {
         itemDescription.ResetDescription();
         DeselectAllItems();
@@ -140,7 +141,11 @@ public class InventoryUI : MonoBehaviour
         ResetDraggedItem();
     }
 
-
-
-
+    internal void UpdateDescription(int itemIdx, Sprite itemImage, string name, string description)
+    {
+        itemDescription.SetDescription(itemImage, name, description);
+        DeselectAllItems();
+        listOfItemsUI[itemIdx].Select();
+    }
+}
 }

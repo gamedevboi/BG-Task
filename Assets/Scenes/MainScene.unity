@@ -5955,6 +5955,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3413608795554077775, guid: a53dae0c057714d1580991039497572f, type: 3}
   m_PrefabInstance: {fileID: 3355643186203502599}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1511666659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7087561233215778627, guid: a53dae0c057714d1580991039497572f, type: 3}
+  m_PrefabInstance: {fileID: 3355643186203502599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511666657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8ac773ccd953e088f2046831145b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1511666661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5969,6 +5980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorysize: 10
   inventoryUI: {fileID: 1498101100}
+  playerController: {fileID: 1511666659}
 --- !u!1 &1521200136
 GameObject:
   m_ObjectHideFlags: 0

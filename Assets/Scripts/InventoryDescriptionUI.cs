@@ -6,7 +6,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryDescriptionUI : MonoBehaviour
+namespace Inventory.UI{
+    public class InventoryDescriptionUI : MonoBehaviour
 {
    [SerializeField]
    private Image itemImg;
@@ -24,7 +25,7 @@ public class InventoryDescriptionUI : MonoBehaviour
 
     public void ResetDescription()
     {
-        itemImg.gameObject.SetActive(true);
+        itemImg.gameObject.SetActive(false);
         itemTitleTxt.text = "";
         itemDescTxt.text = "";
     }
@@ -35,4 +36,5 @@ public class InventoryDescriptionUI : MonoBehaviour
         itemTitleTxt.text = itemName;
         itemImg.sprite = sprite;
     }
+}
 }

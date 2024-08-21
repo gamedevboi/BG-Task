@@ -8,7 +8,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItemUI : MonoBehaviour
+namespace Inventory.UI{
+    public class InventoryItemUI : MonoBehaviour
 {
     [SerializeField]
     private UnityEngine.UI.Image itemImage;
@@ -81,5 +82,7 @@ public class InventoryItemUI : MonoBehaviour
     }
 
 
+
+}
 
 }

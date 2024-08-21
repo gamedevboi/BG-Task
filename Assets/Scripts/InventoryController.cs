@@ -1,19 +1,63 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Inventory.Model;
+using Inventory.UI;
+using Unity.VisualScripting;
 using UnityEngine;
 
+namespace Inventory{
 public class InventoryController : MonoBehaviour
 {
-    public int inventorysize = 10;
     [SerializeField]
     private InventoryUI inventoryUI;
     [SerializeField]
+    private InventorySO inventoryData;
+
+    [SerializeField]
     private PlayerController playerController;
     
-    private void Start() {
-        inventoryUI.InitializeInventoryUI(inventorysize);
+    private void Start()
+    {
+        PrepareUI();
+  
     }
-    
+
+    private void PrepareUI()
+    {
+        inventoryUI.InitializeInventoryUI(inventoryData.Size);
+        inventoryUI.OnDescriptionRequested += HandleDescriptionRequest;
+        inventoryUI.OnSwapItems += HandleSwapItems;
+        inventoryUI.OnStartDragging += HandleDragging;
+        inventoryUI.OnItemActionRequested += HandleItemActionRequest;
+    }
+
+
+    private void HandleItemActionRequest(int itemIdx)
+    {
+    }
+
+    private void HandleDragging(int itemIdx)
+    {
+    }
+
+    private void HandleSwapItems(int itemIdx_1, int itemIdx_2)
+    {
+    }
+
+    private void HandleDescriptionRequest(int itemIdx)
+    {
+        InventoryItem inventoryItem = inventoryData.GetItemAt(itemIdx);
+        if (inventoryItem.IsEmpty){
+            inventoryUI.ResetSelection();
+            return;
+        }
+        ItemSO item = inventoryItem.item;
+        inventoryUI.UpdateDescription(itemIdx,  item.ItemImage, item.name, item.Description);
+    }
+
+
+
     public void Update() {
         if(Input.GetKeyDown(KeyCode.I)){
             if (inventoryUI.isActiveAndEnabled == false)
@@ -21,6 +65,12 @@ public class InventoryController : MonoBehaviour
                 inventoryUI.Show();
                 playerController.isInInventory = true;
                 Cursor.lockState = CursorLockMode.None;
+
+                foreach (var item in inventoryData.GetCurrentInventoryState())
+                {
+                    inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+                }
+
 
             }else { 
                 inventoryUI.Hide();
@@ -30,3 +80,7 @@ public class InventoryController : MonoBehaviour
     }
   }
 }
+}
+
+
+

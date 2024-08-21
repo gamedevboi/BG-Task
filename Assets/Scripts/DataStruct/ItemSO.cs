@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+namespace Inventory.Model{
 [CreateAssetMenu]
 public class ItemSO : ScriptableObject
 {
@@ -23,6 +25,8 @@ public class ItemSO : ScriptableObject
     [field: SerializeField]
     public Sprite ItemImage { get; set; }
 
-    [field: SerializeField]
-    public List<ItemParameter> DefaultParametersList { get; set; }
+    // [field: SerializeField]
+    // public List<ItemParameter> DefaultParametersList { get; set; }
+}
+
 }
